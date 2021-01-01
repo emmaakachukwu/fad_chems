@@ -43,7 +43,7 @@ $title = $title ?? 'Products';
                     <div class="menu-wrapper">
                         <!-- Logo -->
                         <div class="logo">
-                            <a href="index.html"><img src="assets/img/logo/logo.png" alt=""></a>
+                            <a href="index.php"><img src="assets/img/logo/logo.png" alt=""></a>
                         </div>
                         <!-- Main-menu -->
                         <div class="main-menu d-none d-lg-block">
@@ -51,6 +51,7 @@ $title = $title ?? 'Products';
                                 <ul id="navigation">
                                     <li><a href="index.php">products</a></li>
                                     <li><a href="about.php">about</a></li>
+                                    <li><a href="payment.php">make payment</a></li>
                                 </ul>
                             </nav>
                         </div>
