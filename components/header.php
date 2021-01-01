@@ -1,7 +1,9 @@
 <?php
 
+require_once "./lib/config.php";
+
 $app_name = "Fad Chemicals";
-$title = $title ?? 'Shop';
+$title = $title ?? 'Products';
 
 ?>
 
@@ -48,22 +50,9 @@ $title = $title ?? 'Shop';
                             <nav>
                                 <ul id="navigation">
                                     <li><a href="index.php">products</a></li>
-                                    <li><a href="about.html">about</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="about.php">about</a></li>
                                 </ul>
                             </nav>
-                        </div>
-                        <!-- Header Right -->
-                        <div class="header-right">
-                            <ul>
-                                <li>
-                                    <div class="nav-search search-switch">
-                                        <span class="flaticon-search"></span>
-                                    </div>
-                                </li>
-                                <li> <a href="login.html"><span class="flaticon-user"></span></a></li>
-                                <li class="hot"><a href="cart.html"><span class="flaticon-shopping-cart"></span></a> </li>
-                            </ul>
                         </div>
                     </div>
                     <!-- Mobile Menu -->

@@ -19,3 +19,15 @@ li.hot::before {
     letter-spacing: 1px;
     font-weight: 500;
 }
+
+.popular-img {
+    background-image: url("./../img/hero/about_hero.png");
+    height: 250px;
+}
+
+.popular-img h3 {
+    line-height: 250px;
+    font-size: 80px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
