@@ -14,13 +14,9 @@ if ( $result->num_rows ) {
 ?>
     <main>
         <?php include_once "./components/page_header.php"; ?>
-        <!-- Latest Products Start -->
         <section class="popular-items latest-padding">
             <div class="container">
-                
-                <!-- Nav Card -->
                 <div class="tab-content" id="nav-tabContent">
-                    <!-- card one -->
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="row">
                             <?php foreach($products as $product) { ?>
@@ -46,10 +42,8 @@ if ( $result->num_rows ) {
                         </div>
                     </div>
                 </div>
-                <!-- End Nav Card -->
             </div>
         </section>
-        <!-- Latest Products End -->
         <?php include_once "./components/shop_method.php"; ?>
     </main>
 
