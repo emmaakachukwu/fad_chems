@@ -30,15 +30,15 @@ if ( $result->num_rows ) {
                     <h4 class="mb-30">Upload evidence of payment</h4>
                     <div class="form-group mb-30">
                         <label for="">Email</label>
-                        <input type="email" class="form-control" name="email" placeholder="Enter your email address">
+                        <input type="email" class="form-control" name="email" placeholder="Enter your email address" required>
                     </div>
                     <div class="form-group mb-30">
                         <label for="">Amount</label>
-                        <input type="number" class="form-control" name="amount" placeholder="Enter amount paid">
+                        <input type="number" class="form-control" name="amount" placeholder="Enter amount paid" required>
                     </div>
                     <div class="form-group mb-30">
                         <label for="">Select File</label>
-                        <input type="file" class="form-control" name="file">
+                        <input type="file" class="form-control" name="file" required>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn_3">Submit</button>

@@ -2,11 +2,11 @@
 
 require_once "./lib/config.php";
 
-if ( !isset($_SESSION['user']) || empty($_SESSION['user']) ) {
+if ( !isset($_SESSION['admin']) || empty($_SESSION['admin']) ) {
     $from_route = basename($_SERVER['PHP_SELF'], '.php') == 'index';
     logout($from_route);
 } else {
-    $id = $_SESSION['user'];
+    $id = $_SESSION['admin'];
 }
 
 $sql = "SELECT * FROM users WHERE id = '$id' LIMIT 1";

@@ -46,7 +46,7 @@ function shorten_sring(string $var): string {
                         <td><?php echo  $i+1 ?></td>
                         <td>
                             <?php if ( isset($products[$i]->image_path) ) { ?>
-                                <img src="./uploads/products/<?php echo $products[$i]->image_path ?>" alt="<?php echo $products[$i]->name ?>" class="image-fluid rounded table-image">
+                                <img src="./../uploads/products/<?php echo $products[$i]->image_path ?>" alt="<?php echo $products[$i]->name ?>" class="image-fluid rounded table-image">
                             <?php } ?>
                         </td>
                         <td><?php echo $products[$i]->name ?></td>

@@ -63,7 +63,7 @@ function _404_error(): void {
         <?php if ( isset($product->image_path) && !empty(trim($product->image_path)) ) { ?>
             <p class="mt-4">Product Image</p>
             <div class="row mb-4">
-                <img src="./uploads/products/<?php echo $product->image_path ?>" alt="<?php echo $product->name ?>" class="image-fluid rounded col-md-4">
+                <img src="./../uploads/products/<?php echo $product->image_path ?>" alt="<?php echo $product->name ?>" class="image-fluid rounded col-md-4">
             </div>
             <input type="hidden" value="<?php echo $product->image_path ?>" name="newFileName">
         <?php } ?>

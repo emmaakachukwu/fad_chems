@@ -2,10 +2,10 @@
 
 include "./../lib/config.php";
 
-if ( !isset($_SESSION['user']) || empty($_SESSION['user']) ) {
+if ( !isset($_SESSION['admin']) || empty($_SESSION['admin']) ) {
     logout();
 } else {
-    $id = $_SESSION['user'];
+    $id = $_SESSION['admin'];
 }
 
 validate_empty_fields($post);
