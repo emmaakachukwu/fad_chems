@@ -15,7 +15,7 @@ if ( $result->num_rows ) {
     <main>
         <?php include_once "./components/page_header.php"; ?>
         <section class="popular-items latest-padding">
-            <h4 class="text-center mb-30">Make payment via any of the following medium and upload an evidence of payment below. An admin will get back to you.</h4>
+            <h4 class="text-center mb-30">Make payment via any of the following media and upload an evidence of payment below. An admin will get back to you.</h4>
             <div class="container mb-30">
                 <?php foreach ($wallets as $wallet) { ?>
                     <div class="card p-4 mb-30">
