@@ -2,7 +2,6 @@
 
 include "./../lib/config.php";
 
-// dd($post);
 if ( !isset($post['payment_id']) || empty(trim($post['payment_id'])) || !isset($post['approved']) || empty(trim($post['approved'])) || !is_numeric($post['payment_id']) )
     array_push($errors, 'something went wrong.. refresh');
 else {

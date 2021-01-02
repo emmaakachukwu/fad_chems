@@ -27,8 +27,8 @@ function shorten_sring(string $var): string {
     <a href="./add_product.php" class="btn btn-primary text-white mt-3"><i class="fa fa-plus"></i> &nbsp; Add Product</a>
 </div>
 
-<div class="card-box pd-20 height-100-p mb-30">
-    <table class="table table-responsive">
+<div class="card-box pd-20 height-100-p mb-30 table-responsive">
+    <table class="table">
         <thead>
             <th scope="col">#</th>
             <th scope="col">Image</th>
@@ -54,7 +54,13 @@ function shorten_sring(string $var): string {
                         <td><?php echo number_format($products[$i]->price) ?></td>
                         <td><?php echo shorten_sring($products[$i]->desc) ?></td>
                         <td><?php echo date('d M, Y h:i a', strtotime($products[$i]->created_at)) ?? '' ?></td>
-                        <td><a href="./edit_product.php?product_id=<?php echo $products[$i]->id ?>" class="btn btn-primary btn-sm text-white">Edit</a></td>
+                        <td>
+                            <a href="./edit_product.php?product_id=<?php echo $products[$i]->id ?>" class="btn btn-primary btn-sm text-white">Edit</a>
+                            <button type='button' class="btn btn-danger btn-sm" onclick="deleteProduct('<?php echo $products[$i]->id ?>')">Delete</button>
+                            <form action="./forms/products.php<?php echo !empty($_GET) ? '?'.http_build_query($_GET) : '' ?>" class="d-inline" id="form-<?php echo $products[$i]->id ?>" method='post'>
+                                <input type="hidden" name='pid' value="<?php echo $products[$i]->id ?>">
+                            </form>
+                        </td>
                     </tr>
                 <?php } ?>
             </tbody>
@@ -62,4 +68,12 @@ function shorten_sring(string $var): string {
     </table>					
 </div>
 
-<?php include_once "./lib/auth_footer.php";
+<?php include_once "./lib/auth_footer.php" ?>
+
+<script>
+    const deleteProduct = (id) => {
+        let form = document.querySelector('#form-'+id)
+        if ( confirm("Delete Product?") )
+            form.submit();
+    }
+</script>

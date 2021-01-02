@@ -36,8 +36,8 @@ if ( $result->num_rows ) {
     </div>
 </div>
 
-<div class="card-box pd-20 height-100-p mb-30">
-    <table class="table table-responsive">
+<div class="card-box pd-20 height-100-p mb-30 table-responsive">
+    <table class="table">
         <thead>
             <th scope="col">#</th>
             <th scope="col">Email</th>
