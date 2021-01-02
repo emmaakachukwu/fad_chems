@@ -17,12 +17,38 @@ if ( $result->num_rows ) {
         <section class="popular-items latest-padding">
             <h4 class="text-center mb-30">Make payment via any of the following media and upload an evidence of payment below. An admin will get back to you.</h4>
             <div class="container mb-30">
-                <?php foreach ($wallets as $wallet) { ?>
+                <?php foreach ($wallets as $wallet) { if ( $wallet->type == 'btc' ) { ?>
                     <div class="card p-4 mb-30">
                         <h6><?php echo $wallet->wallet_id ?></h6>
                         <p><?php echo strtoupper($wallet->type) ?></p>
                     </div>
-                <?php } ?>
+                <?php } if ( $wallet->type == 'bank' ) { ?>
+                    <div class="card p-4 mb-30">
+                        <h6><?php echo $wallet->wallet_id ?></h6>
+                        <p class="mb-30">ACCOUNT NUMBER</p>
+                        <h6><?php echo $wallet->bank_name ?></h6>
+                        <p class="mb-30">BANK NAME</p>
+                        <h6><?php echo $wallet->bank_address ?></h6>
+                        <p class="mb-30">BANK ADDRESS</p>
+                        <h6><?php echo $wallet->recipient_name ?></h6>
+                        <p class="mb-30">RECIPIENT NAME</p>
+                        <h6><?php echo $wallet->swift_code ?></h6>
+                        <p>SWIFT CODE</p>
+                    </div>
+                <?php } if ( $wallet->type == 'native_lang' ) { ?>
+                    <div class="card p-4 mb-30">
+                        <h6><?php echo $wallet->wallet_id ?></h6>
+                        <p class="mb-30">Номер счета</p>
+                        <h6><?php echo $wallet->bank_name ?></h6>
+                        <p class="mb-30">Название банка</p>
+                        <h6><?php echo $wallet->bank_address ?></h6>
+                        <p class="mb-30">Адрес банка</p>
+                        <h6><?php echo $wallet->recipient_name ?></h6>
+                        <p class="mb-30">Имя получателя</p>
+                        <h6><?php echo $wallet->swift_code ?></h6>
+                        <p>SWIFT-код</p>
+                    </div>
+                <?php } } ?>
             </div>
 
             <div class="container">

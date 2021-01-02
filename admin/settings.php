@@ -58,7 +58,7 @@ if ( $result->num_rows ) {
                     </div>
                     <div class="input-group custom d-block">
                         <input type="text" class="form-control form-control-lg" placeholder="Bank address" name='baddress' value="<?php echo $wallet->bank_address ?>" required>
-                        <small>BANK ADDRESS</small>
+                        <small>Адрес банка</small>
                     </div>
                     <div class="input-group custom d-block">
                         <input type="text" class="form-control form-control-lg" placeholder="Recipient name" name='recipient' value="<?php echo $wallet->recipient_name ?>" required>
