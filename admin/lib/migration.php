@@ -48,8 +48,12 @@ $link->query($sql);
 
 $sql = "CREATE TABLE IF NOT EXISTS `wallets` (
     `id` INT(50) NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    `type` VARCHAR(50) NOT NULL,
-    `wallet_id` VARCHAR(100) NOT NULL,
+    `type` VARCHAR(50) NULL,
+    `wallet_id` VARCHAR(100) NULL,
+    `bank_name` VARCHAR(100) NULL,
+    `bank_address` VARCHAR(200) NULL,
+    `recipient_name` VARCHAR(100) NULL,
+    `swift_code` VARCHAR(100) NULL,
 
     `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `updated_at` TIMESTAMP NULL
@@ -67,10 +71,10 @@ if ( !$result->num_rows ) {
 $sql = "SELECT id FROM wallets LIMIT 1";
 $result = $link->query($sql);
 if ( !$result->num_rows ) {
-    $sql = "INSERT INTO wallets (`type`, wallet_id) VALUES
-            ('BitCoin', '1234567890'),
-            ('Ethereum', 'qwertyu'),
-            ('CashApp', '\$wawuwawu')
+    $sql = "INSERT INTO wallets (`type`, wallet_id, bank_name, bank_address, recipient_name, swift_code) VALUES
+            ('btc', '1Mqkt6rMcYKBWvPd63V9ufFjUqc95ugw5y', null, null, null, null),
+            ('bank', '40820810238116105689', 'Sberbank', 'Moscow, st.  Garibaldi, 36.117418', 'Denis Jonathan', 'SABRRUMM'),
+            ('native_lang', '40820810238116105689', 'Сбербанк', 'г. Москва, ул. Гарибальди, д. 36,117418', 'Денис Джонатан', 'SABRRUMM')
         ";
     $link->query($sql);
 }

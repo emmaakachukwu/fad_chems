@@ -8,31 +8,35 @@ if ( !isset($_SESSION['admin']) || empty($_SESSION['admin']) ) {
     $id = $_SESSION['admin'];
 }
 
+if ( !isset($post['tab']) || empty(trim($post['tab'])) )
+    array_push($errors, 'Something went wrong.. refresh');
+check_errors($errors);
 validate_empty_fields($post);
+
+$bname = $bname ?? null;
+$baddress = $baddress ?? null;
+$recipient = $recipient ?? null;
+$swift = $swift ?? null;
 $updated_at = date('Y-m-d H:i:s');
 
-if ( $tab == 'wallet' ) {
+if ( $tab != 'password' ) {
     foreach ( $post as $key => $value ) {
-        if ( $key != 'tab' ) {
-            try {
-                $sql = $link->prepare("UPDATE `wallets` SET wallet_id=?, updated_at=? WHERE type=?");
-                // dd($link->error);
-                $sql->bind_param("sss", $value, $updated_at, $key);
-                $sql->execute();
-                $sql->close();
-            } catch (Exception $e) {
-                array_push($errors, 'Something went wrong updating your '.$key.'ID');
-                $sql->close();
-                check_errors($errors);
-            }
+        try {
+            $sql = $link->prepare("UPDATE `wallets` SET wallet_id=?, bank_name=?, bank_address=?, recipient_name=?, swift_code=?, updated_at=? WHERE type=?");
+            // dd($link->error);
+            $sql->bind_param("sssssss", $wid, $bname, $baddress, $recipient, $swift, $updated_at, $tab);
+            $sql->execute();
+            $sql->close();
+        } catch (Exception $e) {
+            array_push($errors, 'Something went wrong updating details');
+            $sql->close();
+            check_errors($errors);
         }
     }
 
     $_SESSION['success'] = ["Wallet info updated"];
     on_success('settings');
-}
-
-if ( $tab == 'password' ) {
+} else {
     $sql = $link->prepare("SELECT id, password FROM users WHERE id = ? AND role = 'admin' LIMIT 1");
     $sql->bind_param("s", $id);
     if ( $sql->execute() ) {

@@ -24,24 +24,87 @@ if ( $result->num_rows ) {
 </div>
 
 <div class="row pd-20 height-100-p mb-30">
-    <div class="col-md-6 p-2">
-        <div class="card-box p-4">
-            <?php if ( count($wallets) ) { ?>
-                <form action='./forms/settings.php' method='POST'>
-                    <h4 class="mb-30">Update Wallet Info</h4>
-                    <input type="hidden" name='tab' value='wallet'>
-                    <?php foreach ( $wallets as $wallet ) { ?>
+    <?php if ( count($wallets) ) { ?>
+        <div class="col-md-6 p-2">
+            <?php 
+            foreach ($wallets as $wallet) {
+                if ( $wallet->type == 'btc' ) {?>
+                <div class="card-box p-4 mb-30">
+                    <h4 class="mb-30">BITCOIN WALLET DETAILS</h4>
+                    <form action='./forms/settings.php' method='POST'>
+                        <input type="hidden" name='tab' value='<?php echo $wallet->type ?>'>
                         <div class="input-group custom d-block">
-                            <input type="text" class="form-control form-control-lg" placeholder="<?php echo ucfirst($wallet->type) ?> ID" name='<?php echo $wallet->type ?>' value="<?php echo $wallet->wallet_id ?>"  required>
-                            <small><?php echo ucfirst($wallet->type) ?> ID</small>
+                            <input type="text" class="form-control form-control-lg" placeholder="BITCOIN ID" name='wid' value="<?php echo $wallet->wallet_id ?>" required>
+                            <small>BITCOIN ID</small>
                         </div>
-                    <?php } ?>
-
+                        <input type='submit' class="btn btn-primary btn-lg btn-block" value='Update Wallet Info'>
+                    </form>
+                </div>
+            <?php 
+            } 
+            if ( $wallet->type == 'native_lang' ) {
+            ?>
+            <div class="card-box p-4 mb-30">
+                <h4 class="mb-30">BANK DETAILS (TRANSLATED)</h4>
+                <form action='./forms/settings.php' method='POST'>
+                    <input type="hidden" name='tab' value='<?php echo $wallet->type ?>'>
+                    <div class="input-group custom d-block">
+                        <input type="text" class="form-control form-control-lg" placeholder="Account number" name='wid' value="<?php echo $wallet->wallet_id ?>" required>
+                        <small>Номер счета</small>
+                    </div>
+                    <div class="input-group custom d-block">
+                        <input type="text" class="form-control form-control-lg" placeholder="Bank name" name='bname' value="<?php echo $wallet->bank_name ?>" required>
+                        <small>Название банка</small>
+                    </div>
+                    <div class="input-group custom d-block">
+                        <input type="text" class="form-control form-control-lg" placeholder="Bank address" name='baddress' value="<?php echo $wallet->bank_address ?>" required>
+                        <small>BANK ADDRESS</small>
+                    </div>
+                    <div class="input-group custom d-block">
+                        <input type="text" class="form-control form-control-lg" placeholder="Recipient name" name='recipient' value="<?php echo $wallet->recipient_name ?>" required>
+                        <small>Имя получателя</small>
+                    </div>
+                    <div class="input-group custom d-block">
+                        <input type="text" class="form-control form-control-lg" placeholder="Swift code" name='swift' value="<?php echo $wallet->swift_code ?>" required>
+                        <small>SWIFT-код</small>
+                    </div>
                     <input type='submit' class="btn btn-primary btn-lg btn-block" value='Update Wallet Info'>
                 </form>
-            <?php } ?>
+            </div>
+            <?php
+            }
+            if ( $wallet->type == 'bank' ) {
+            ?>
+                <div class="card-box p-4 mb-30">
+                    <h4 class="mb-30">BANK DETAILS</h4>
+                    <form action='./forms/settings.php' method='POST'>
+                        <input type="hidden" name='tab' value='<?php echo $wallet->type ?>'>
+                        <div class="input-group custom d-block">
+                            <input type="text" class="form-control form-control-lg" placeholder="Account number" name='wid' value="<?php echo $wallet->wallet_id ?>" required>
+                            <small>ACCOUNT NUMBER</small>
+                        </div>
+                        <div class="input-group custom d-block">
+                            <input type="text" class="form-control form-control-lg" placeholder="Bank name" name='bname' value="<?php echo $wallet->bank_name ?>" required>
+                            <small>BANK NAME</small>
+                        </div>
+                        <div class="input-group custom d-block">
+                            <input type="text" class="form-control form-control-lg" placeholder="Bank address" name='baddress' value="<?php echo $wallet->bank_address ?>" required>
+                            <small>BANK ADDRESS</small>
+                        </div>
+                        <div class="input-group custom d-block">
+                            <input type="text" class="form-control form-control-lg" placeholder="Recipient name" name='recipient' value="<?php echo $wallet->recipient_name ?>" required>
+                            <small>RECIPIENT NAME</small>
+                        </div>
+                        <div class="input-group custom d-block">
+                            <input type="text" class="form-control form-control-lg" placeholder="Swift code" name='swift' value="<?php echo $wallet->swift_code ?>" required>
+                            <small>SWIFT CODE</small>
+                        </div>
+                        <input type='submit' class="btn btn-primary btn-lg btn-block" value='Update Wallet Info'>
+                    </form>
+                </div>
+            <?php } } ?>
         </div>
-    </div>
+    <?php } ?>
     
     <div class="col-md-6 p-2">
         <div class="card-box p-4">
