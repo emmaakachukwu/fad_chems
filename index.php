@@ -19,26 +19,30 @@ if ( $result->num_rows ) {
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                         <div class="row">
-                            <?php foreach($products as $product) { ?>
-                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
-                                    <div class="single-popular-items mb-50 text-center">
-                                        <div class="popular-img">
-                                            <?php if ( isset($product->image_path) && !empty($product->image_path) ) { ?>
-                                                <img src="./uploads/products/<?php echo $product->image_path ?>" alt="<?php echo $product->name ?>">
-                                            <?php } else if ( isset($product->formula) && !empty($product->formula) ) { ?>
-                                                <h3><?php echo check_string($product->formula) ?></h3>
-                                            <?php } else { ?>
-                                                <h3><?php echo get_inits($product->name) ?> </h3>
-                                            <?php } ?>
+                            <?php
+                                if ( count($products) ) {
+                                    foreach($products as $product) { ?>
+                                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6">
+                                            <div class="single-popular-items mb-50 text-center">
+                                                <div class="popular-img">
+                                                    <?php if ( isset($product->image_path) && !empty($product->image_path) ) { ?>
+                                                        <img src="./uploads/products/<?php echo $product->image_path ?>" alt="<?php echo $product->name ?>">
+                                                    <?php } else if ( isset($product->formula) && !empty($product->formula) ) { ?>
+                                                        <h3><?php echo check_string($product->formula) ?></h3>
+                                                    <?php } else { ?>
+                                                        <h3><?php echo get_inits($product->name) ?> </h3>
+                                                    <?php } ?>
+                                                </div>
+                                                
+                                                <div class="popular-caption">
+                                                    <h3><?php echo $product->name ?></h3>
+                                                    <span><?php echo check_string($product->formula, ' ') ?></span>
+                                                </div>
+                                            </div>
                                         </div>
-                                        
-                                        <div class="popular-caption">
-                                            <h3><?php echo $product->name ?></h3>
-                                            <span><?php echo check_string($product->formula, ' ') ?></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php } ?>
+                                    <?php }
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
