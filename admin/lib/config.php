@@ -17,9 +17,9 @@ if ( $is_local ) {
     define('DB_PASSWORD', '');
     define('DB_NAME', 'fadchems');
 } else {
-    define('DB_USERNAME', 'cresjvym_crestminers');
+    define('DB_USERNAME', 'cresjvym_fadchems');
     define('DB_PASSWORD', 'tydev2020');
-    define('DB_NAME', 'cresjvym_crestminers');
+    define('DB_NAME', 'cresjvym_fadchems');
 }
  
 /* Attempt to connect to MySQL database */
