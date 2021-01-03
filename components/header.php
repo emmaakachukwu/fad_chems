@@ -16,7 +16,6 @@ $title = $title ?? 'Products';
     <title><?php echo ucfirst($title) . ' | ' . strtoupper($app_name) ?></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="manifest" href="site.webmanifest">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
 
     <!-- CSS here -->
@@ -55,8 +54,8 @@ $title = $title ?? 'Products';
                         <div class="main-menu d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
-                                    <li><a href="index.php">products</a></li>
-                                    <li><a href="about.php">about</a></li>
+                                    <li><a href="index.php">home</a></li>
+                                    <li><a href="products.php">products</a></li>
                                     <li><a href="payment.php">make payment</a></li>
                                 </ul>
                             </nav>
