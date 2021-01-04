@@ -50,13 +50,24 @@ $title = $title ?? 'Products';
                         <div class="logo">
                             <a href="index.php"><img src="assets/img/logo/fad_logo_sm.png" alt=""></a>
                         </div>
+                        <!-- google translator -->
+                        <div id="google_translate_element"></div>
+                        <script type="text/javascript">
+                            function googleTranslateElementInit() {
+                                new google.translate.TranslateElement({
+                                    pageLanguage: 'en',
+                                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+                                }, 'google_translate_element');
+                            }
+                        </script>
+                        <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                         <!-- Main-menu -->
                         <div class="main-menu d-none d-lg-block">
                             <nav>
                                 <ul id="navigation">
                                     <li><a href="index.php">home</a></li>
                                     <li><a href="products.php">products</a></li>
-                                    <li><a href="payment.php">make payment</a></li>
+                                    <li><a href="payment.php">make payments</a></li>
                                 </ul>
                             </nav>
                         </div>

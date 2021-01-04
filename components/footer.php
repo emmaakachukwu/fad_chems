@@ -84,8 +84,8 @@
     <script src="./assets/js/plugins.js"></script>
     <script src="./assets/js/main.js"></script>
 
-    <!--Start of Tawk.to Script-->
     <script type="text/javascript">
+        // Start of Tawk.to Script
         var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
         (function(){
         var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
@@ -95,10 +95,9 @@
         s1.setAttribute('crossorigin','*');
         s0.parentNode.insertBefore(s1,s0);
         })();
-    </script>
-    <!--End of Tawk.to Script-->
-    <!-- GetButton.io widget -->
-    <script type="text/javascript">
+        // End of Tawk.to Script
+
+        // GetButton.io widget
         (function () {
             var options = {
                 whatsapp: "+16012274580", // WhatsApp number
@@ -113,8 +112,30 @@
             s.onload = function () { WhWidgetSendButton.init(host, proto, options); };
             var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s, x);
         })();
+        // End of GetButton.io widget
+
+        // custom google translate script
+        function changeGoogleStyles() {
+            if ( $(document).width() < 1000 ) {
+                if(($goog = $('.goog-te-menu-frame').contents().find('body')).length) {
+                    var stylesHtml = '<style>'+
+                        '.goog-te-menu2 {'+
+                            'max-width:100% !important;'+
+                            'overflow:scroll !important;'+
+                            'box-sizing:border-box !important;'+
+                            'height:auto !important;'+
+                        '}'+
+                    '</style>';
+                    $goog.prepend(stylesHtml);
+                } else {
+                    setTimeout(changeGoogleStyles, 50);
+                }
+            }
+        }
+        changeGoogleStyles();
+        // end of custom google translate script
     </script>
-<!-- /GetButton.io widget -->
+<!--  -->
 </body>
 
 </html>
